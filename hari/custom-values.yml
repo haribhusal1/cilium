@@ -1,0 +1,45 @@
+---
+cluster:
+  id: 15
+  name: r1-cluster
+ipam:
+  mode: "cluster-pool"
+  operator:
+    clusterPoolIPv4PodCIDRList: ["10.100.0.0/16"]
+operator:
+  unmanagedPodWatcher:
+    restart: true
+cni:
+  customConf: false
+  uninstall: false
+  exclusive: false
+policyEnforcementMode: "default"
+kubeProxyReplacement: strict
+bpf:
+  hostLegacyRouting: false
+  masquerade: true
+tunnel: geneve
+hubble:
+  relay:
+    enabled: true
+  ui:
+    enabled: true
+    backend:
+      image:
+        tag: v0.11.0
+      frontend:
+        image:
+          tag: v0.11.0
+  metrics:
+    enabled:
+    - dns
+    - drop
+    - tcp
+    - udp
+    - flow
+    - icmp
+    - http
+prometheus:
+  enabled: true
+pmtuDiscovery:
+  enabled: true
