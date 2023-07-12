@@ -5,7 +5,7 @@ cluster:
 ipam:
   mode: "cluster-pool"
   operator:
-    clusterPoolIPv4PodCIDRList: ["10.100.0.0/16"]
+    clusterPoolIPv4PodCIDRList: ["10.200.0.0/16"]
 operator:
   unmanagedPodWatcher:
     restart: true
